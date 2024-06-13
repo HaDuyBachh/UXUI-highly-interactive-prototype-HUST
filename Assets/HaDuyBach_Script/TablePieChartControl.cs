@@ -39,6 +39,7 @@ public class TablePieChartControl : MonoBehaviour
         float sum = 0f;
         foreach (var mt in _data.listOfKPI)
         {
+            //Debug.Log(mt.name);
             sum += mt.getPercentDone() * mt.weight / 100f;
         }
 
@@ -49,7 +50,7 @@ public class TablePieChartControl : MonoBehaviour
             SumPer += Mathf.CeilToInt(mt.getPercentDone() * mt.weight / sum);
         }
 
-        Debug.Log("Tổng phần trăm là: " + SumPer);
+        //Debug.Log("Tổng phần trăm là: " + SumPer);
 
         if (SumPer <= 0)
         {
@@ -65,7 +66,7 @@ public class TablePieChartControl : MonoBehaviour
         {
             var per = Mathf.CeilToInt(mt.getPercentDone() * mt.weight / sum);
             ThemKPIChart(mt.name, SumPer, per, 35.5f, color_arr[c++]);
-            Debug.Log("Phần trăm hiện tại là: " + per);
+            //Debug.Log("Phần trăm hiện tại là: " + per);
             SumPer -= per;
         }
     }

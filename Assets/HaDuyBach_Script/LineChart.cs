@@ -21,9 +21,9 @@ public class LineChart : MonoBehaviour
     void Awake()
     {
         graphContainer = transform.GetComponent<RectTransform>();
-        
+
         //  CreateCircle(new Vector2(200, 300));
-        
+
 
         //valueList = new List<int> { 5, 3, 4, 3, 1 , 4};
         //ColorUtility.TryParseHtmlString("#FC744B", out color);
@@ -32,7 +32,7 @@ public class LineChart : MonoBehaviour
     }
     private void Start()
     {
-        List<int> valueList = new List<int>() { 5, 2 ,5, 14, 32 };
+        List<int> valueList = new List<int>() { 5, 2, 5, 14, 32 };
         ShowGraph(valueList, "#6F65E8");
 
         data = FindObjectOfType<Database>();
@@ -64,16 +64,13 @@ public class LineChart : MonoBehaviour
             lableX.SetParent(graphContainer, false);
             lableX.gameObject.SetActive(true);
             lableX.anchoredPosition = new Vector2(xPosition, -15f);
-            lableX.GetComponent<Text>().text = DateTime.Now.AddDays(i-valueList.Count+1).ToString();
+            var day = DateTime.Now.AddDays(i - valueList.Count + 1);
+            lableX.GetComponent<Text>().text = day.Day + "/" + day.Month;
 
-            if (i != 0)
-            {
-                RectTransform dashX = Instantiate(dashTemplateY);
-                dashX.SetParent(graphContainer, false);
-                dashX.gameObject.SetActive(true);
-                dashX.anchoredPosition = new Vector2(xPosition, 0f);
-            }    
-            
+            RectTransform dashX = Instantiate(dashTemplateY);
+            dashX.SetParent(graphContainer, false);
+            dashX.gameObject.SetActive(true);
+            dashX.anchoredPosition = new Vector2(xPosition, 0f);
         }
 
 
@@ -95,14 +92,14 @@ public class LineChart : MonoBehaviour
     }
     private GameObject CreateCircle(Vector2 anchoredPosition)
     {
-    
+
         GameObject gameObject = new GameObject("Circle", typeof(Image));
         gameObject.transform.SetParent(graphContainer, false);
         gameObject.GetComponent<Image>().sprite = circleSprite;
         gameObject.GetComponent<Image>().color = color;
         RectTransform rectTransform = gameObject.GetComponent<RectTransform>();
         rectTransform.anchoredPosition = anchoredPosition;
-        rectTransform.sizeDelta = new Vector2(3,3);
+        rectTransform.sizeDelta = new Vector2(3, 3);
         rectTransform.anchorMin = new Vector2(0, 0);
         rectTransform.anchorMax = new Vector2(0, 0);
         return gameObject;
@@ -120,6 +117,6 @@ public class LineChart : MonoBehaviour
         rectTransform.sizeDelta = new Vector2(distance, 3f);
         rectTransform.anchoredPosition = dotPosA + dir * distance * .5f;
         rectTransform.localEulerAngles = new Vector3(0, 0, UtilsClass.GetAngleFromVectorFloat(dir));
-    }    
+    }
 
 }
