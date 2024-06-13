@@ -39,7 +39,7 @@ public class NotificationControl : MonoBehaviour
 
             if (have)
             {
-                if (listMucTieu != null) listMucTieu += ", ";
+                if (listMucTieu != "") listMucTieu += ", ";
                 listMucTieu += mt.name;
             }
         }    

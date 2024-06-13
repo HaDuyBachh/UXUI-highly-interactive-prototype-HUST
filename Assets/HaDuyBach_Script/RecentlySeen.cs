@@ -17,7 +17,6 @@ public class RecentlySeen : MonoBehaviour
     {
         if (isDrag)
         {
-
             //tab.transform.position += new Vector3(0,((anchor.position.y > _data.tab.position.y) ? 1 : -1) * Time.deltaTime * 600f,0);
 
             var v3 = tab.position + new Vector3(0, anchor.position.y - _data.tab.position.y, 0);
@@ -41,12 +40,11 @@ public class RecentlySeen : MonoBehaviour
         var mucTieu = congViecTab.transform.parent.parent.GetComponent<MucTieuControl>();
         _data = mucTieu._data;
         _name.text = mucTieu._data.name;
-        if (gameObject.activeSelf) gameObject.SetActive(true);
+        if (!gameObject.activeSelf) gameObject.SetActive(true);
     }
 
     public void LoadRecentlyMucTieu()
     {
-        Debug.Log("Đã bấm");
         isDrag = true;
     }    
 }

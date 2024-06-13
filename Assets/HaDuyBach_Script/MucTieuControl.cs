@@ -24,4 +24,22 @@ public class MucTieuControl : MonoBehaviour
 
         chart.SetValue(_data.getPercentDone(), _data.getPercentDone(), 0);
     }    
+
+    public void Collapse()
+    {
+        for (int i = 1; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(false);
+        }
+        transform.parent.GetComponent<TabController>().LoadAllUI();
+    }   
+    
+    public void Expand()
+    {
+        for (int i = 1; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(true);
+        }
+        transform.parent.GetComponent<TabController>().LoadAllUI();
+    }    
 }

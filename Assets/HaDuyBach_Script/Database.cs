@@ -81,11 +81,11 @@ public class Database : MonoBehaviour
             new MucTieuData("Giảng dạy","",40,null,1,new List<TieuChiData>
             {
                 new TieuChiData("Giảng dạy trên trường","",60,10,"giờ",null, new List<CongViecData>{
-                    new CongViecData("Dạy lớp 14035","",3,"giờ","31/5/2024","31/5/2024",null),
-                    new CongViecData("Dạy lớp 14036","",3,"giờ","30/5/2024","30/5/2024",null),
+                    new CongViecData("Dạy lớp 14035","",3,"giờ","31/5/2024","30/6/2024",null),
+                    new CongViecData("Dạy lớp 14036","",3,"giờ","30/5/2024","30/6/2024",null),
                 }),
                 new TieuChiData("Quay video bài học","",40,10,"giờ",null, new List<CongViecData>{
-                    new CongViecData("UIUX","",5,"giờ","27/5/2024","31/5/2024",null),
+                    new CongViecData("UIUX","",5,"giờ","27/5/2024","30/6/2024",null),
                     new CongViecData("KTPM","",2,"giờ","30/5/2024","4/6/2024",null),
                 }),
             }),
@@ -95,14 +95,14 @@ public class Database : MonoBehaviour
                     new CongViecData("Nghiên cứu trải nghiệm người dùng","",10,"bài","1/5/2024","31/5/2024",null),
                 }),
                 new TieuChiData("Số sinh viên mới vào lab","",20,5,"người",null, new List<CongViecData>{
-                    new CongViecData("Định hướng sinh viên","",2,"người","30/5/2024","30/5/2024",null),
+                    new CongViecData("Định hướng sinh viên","",2,"người","30/5/2024","16/6/2024",null),
                 }),
             }),
             new MucTieuData("Phục vụ","",30,null,1,new List<TieuChiData>
             {
                 new TieuChiData("Thuyết Trình Hội Thảo","",100,5,"buổi",null, new List<CongViecData>{
-                    new CongViecData("Hội thảo UIUX","",2,"buổi","29/5/2024","5/6/2024",null),
-                    new CongViecData("Hội thảo OOP","",2,"buổi","29/5/2024","5/6/2024",null),
+                    new CongViecData("Hội thảo UIUX","",2,"buổi","29/5/2024","29/6/2024",null),
+                    new CongViecData("Hội thảo OOP","",2,"buổi","29/5/2024","15/6/2024",null),
                 }),
             }),
         };
