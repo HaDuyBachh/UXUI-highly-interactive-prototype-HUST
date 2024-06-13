@@ -12,4 +12,11 @@ public class TodayTaskControl : MonoBehaviour
 
         transform.GetComponent<CongViecControl>().setData(_data);
     }
+
+    public void ResetValue()
+    {
+        var _data = transform.GetComponent<CongViecControl>()._data;
+        content.text = _data.name + "\n" + "Mô tả: " + (_data.description != "" ? _data.description : "Không có") +
+            "\n" + "Tiến độ: " + _data.targetGoal + " / " + _data.target + " " + _data.targetUnit;
+    }    
 }

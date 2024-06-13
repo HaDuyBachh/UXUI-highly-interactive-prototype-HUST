@@ -26,6 +26,7 @@ public class CongViecControl : MonoBehaviour
 
         if (_name != null) this._name.text = name;
         if (_percentDone!=null) this._percentDone.text = ((int)Mathf.CeilToInt(_data.getPercentDone())) + "%";
+
         if (_data != null) this._data = _data;
         if (chart!=null) chart.SetValue(_data.getPercentDone(), _data.getPercentDone(), 0);
     }
