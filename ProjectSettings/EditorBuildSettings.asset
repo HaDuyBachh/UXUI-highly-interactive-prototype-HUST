@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: "Assets/Scenes/New/\u0110\u0103ng Nh\u1EADp.unity"
+    guid: 5a5f249ba77ad55428d0361681acf275
+  - enabled: 1
+    path: "Assets/Scenes/New/Trang ch\u1EE7.unity"
+    guid: b69b093811e506b43b841624be48cb95
+  - enabled: 1
+    path: Assets/Scenes/New/Dashboard.unity
+    guid: 80a7911c831919d49a3f8100a1cf1b2c
+  - enabled: 1
+    path: "Assets/Scenes/New/L\u1EADp l\u1ECBch.unity"
+    guid: 3f068a46ccb047c479f1a70d6fd16f63
+  - enabled: 1
+    path: "Assets/Scenes/New/Th\xF4ng Tin C\xE1 Nh\xE2n.unity"
+    guid: a87f33e5a382af04b90cf0797d34906e
+  m_configObjects: {}
