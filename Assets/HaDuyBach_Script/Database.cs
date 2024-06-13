@@ -12,6 +12,7 @@ public class Database : MonoBehaviour
     const string filej = "/Database.json";
     const string path = "Assets/HaDuyBach_Script";
     public List<MucTieuData> listOfKPI = new List<MucTieuData>();
+    public ThongTinCaNhanData thongTinCaNhan; 
     public void saveData(List<MucTieuData> list)
     {
         foreach (var _data in listOfKPI)
@@ -106,6 +107,9 @@ public class Database : MonoBehaviour
                 }),
             }),
         };
+
+
+        thongTinCaNhan = new ThongTinCaNhanData("Hà Duy Bách", "hhaduybach@gmail.com", "09999999", "0000", "Sinh Viên");
     }
     public void Awake()
     {
