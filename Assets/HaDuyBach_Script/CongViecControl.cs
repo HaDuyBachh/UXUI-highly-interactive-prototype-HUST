@@ -14,6 +14,7 @@ public class CongViecControl : MonoBehaviour
     public void setData(CongViecData _data)
     {
         this._data = _data;
+        _data.body = this.transform;
     }    
     public void setValue(CongViecData _data)
     {
@@ -23,10 +24,10 @@ public class CongViecControl : MonoBehaviour
             name = name.Substring(0, 12) + "...";
         }
 
-        this._name.text = name;
-        this._percentDone.text = ((int)Mathf.CeilToInt(_data.getPercentDone())) + "%";
-        this._data = _data;
-        chart.SetValue(_data.getPercentDone(), _data.getPercentDone(), 0);
+        if (_name != null) this._name.text = name;
+        if (_percentDone!=null) this._percentDone.text = ((int)Mathf.CeilToInt(_data.getPercentDone())) + "%";
+        if (_data != null) this._data = _data;
+        if (chart!=null) chart.SetValue(_data.getPercentDone(), _data.getPercentDone(), 0);
     }
 
     public void setValueResetParent(CongViecData _data)
