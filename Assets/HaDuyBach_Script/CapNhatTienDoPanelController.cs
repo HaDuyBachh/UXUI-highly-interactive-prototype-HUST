@@ -24,7 +24,5 @@ public class CapNhatTienDoPanelController : MonoBehaviour
         cv.UpdatetargetGoal(float.Parse(updateTargetGoalInput.text));
         congViecTab.GetComponent<CongViecControl>().setValueResetParent(cv);
         Debug.Log("Lưu dữ liệu thành công");
-
-
     }  
 }
