@@ -31,6 +31,16 @@ public class MultiDateContainerController : MonoBehaviour, IDragHandler, IPointe
     /// Kiểm soát ngày tháng
     public DateTime dt;
     public DateTime currPointDate;
+
+    public void SetSwipeAccelLeft()
+    {
+        swipeAccel = 12f;
+    }
+    public void SetSwipeAccelRight()
+    {
+        swipeAccel = -12f;
+    }
+
     private void SetArchoredPos()
     {
         for (int i = 0; i < child.Count; i++)

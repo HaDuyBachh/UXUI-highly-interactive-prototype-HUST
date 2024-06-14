@@ -9,6 +9,8 @@ public class TabController : MonoBehaviour
     private bool _isloadData;
     public List<RectTransform> UITabLoadList;
 
+    public InputField filter;
+
     public Transform TieuChiBody;
     public Transform CongViecBody;
     public Transform KPITab;
@@ -33,8 +35,8 @@ public class TabController : MonoBehaviour
             }
             mt.getPercentDone();
             mt.tab.GetComponent<MucTieuControl>().SetValue(mt);
-        }    
-    }    
+        }
+    }
     public void LoadUI(RectTransform rect)
     {
         LayoutRebuilder.ForceRebuildLayoutImmediate(rect);
@@ -45,8 +47,8 @@ public class TabController : MonoBehaviour
         foreach (var ui in UITabLoadList)
         {
             LoadUI(ui);
-        }    
-    }    
+        }
+    }
     public void ImportUI(RectTransform rect)
     {
         UITabLoadList.Add(rect);
@@ -54,7 +56,7 @@ public class TabController : MonoBehaviour
     public void RemoveUI(RectTransform rect)
     {
         UITabLoadList.Remove(rect);
-    }    
+    }
     public void XoaKPI(MucTieuControl mc)
     {
         RemoveUI(mc.GetComponent<RectTransform>());
@@ -70,7 +72,7 @@ public class TabController : MonoBehaviour
         newKPI.localScale = KPITab.localScale;
 
         var temp = new MucTieuData(
-            themMucTieuPanel.getName(), themMucTieuPanel.getDes(), themMucTieuPanel.getWeight(),newKPI,0,new List<TieuChiData>{});
+            themMucTieuPanel.getName(), themMucTieuPanel.getDes(), themMucTieuPanel.getWeight(), newKPI, 0, new List<TieuChiData> { });
 
         Debug.Log(themMucTieuPanel.getName() + "  " + themMucTieuPanel.getDes() + " " + themMucTieuPanel.getWeight());
 
@@ -93,16 +95,22 @@ public class TabController : MonoBehaviour
         LoadAllUI();
 
         return newKPI.transform;
-    }   
+    }
     public void XoaTieuChi(TieuChiControl tc)
     {
         RemoveUI(tc.GetComponent<RectTransform>());
         tc.transform.parent.GetComponent<MucTieuControl>()._data.listTieuChi.Remove(tc._data);
         Destroy(tc._data.body.gameObject);
         UpdateAllTab();
+        StartCoroutine(LoadAllUIWith(0.05f));
+    }
+
+    public IEnumerator LoadAllUIWith(float time)
+    {
+        yield return new WaitForSeconds(time);
         LoadAllUI();
-        
     }    
+
     public void ThemTieuChi(Button button)
     {
         var newTieuChi = Instantiate(TieuChiBody);
@@ -120,8 +128,8 @@ public class TabController : MonoBehaviour
         newTieuChi.localScale = TieuChiBody.localScale;
 
         var temp = new TieuChiData(
-            themTieuChiPanel.getName(), themTieuChiPanel.getDes(), themTieuChiPanel.getWeight(), 
-            themTieuChiPanel.getTarget(), themTieuChiPanel.getUnit(), newTieuChi, new List<CongViecData>{ });
+            themTieuChiPanel.getName(), themTieuChiPanel.getDes(), themTieuChiPanel.getWeight(),
+            themTieuChiPanel.getTarget(), themTieuChiPanel.getUnit(), newTieuChi, new List<CongViecData> { });
 
         Debug.Log(themTieuChiPanel.getName() + "  " + themTieuChiPanel.getDes() + " " + themTieuChiPanel.getWeight());
 
@@ -131,7 +139,7 @@ public class TabController : MonoBehaviour
 
         ImportUI(newTieuChi.GetComponent<RectTransform>());
         LoadAllUI();
-    }    
+    }
     public Transform ThemTienChi(Transform trans, TieuChiData tc)
     {
         var newTieuChi = Instantiate(TieuChiBody);
@@ -152,7 +160,7 @@ public class TabController : MonoBehaviour
         Destroy(cv._data.body.gameObject);
         UpdateAllTab();
         LoadAllUI();
-    }    
+    }
     public void LuuCongViec()
     {
         var newCongViec = Instantiate(CongViecBody);
@@ -168,11 +176,11 @@ public class TabController : MonoBehaviour
 
         themCongViecPanel.tieuChi.listCongViec.Add(temp);
 
-        Debug.Log(themCongViecPanel.getName() + "  " + themCongViecPanel.getDes() + " " +themCongViecPanel.tieuChi.name);
+        Debug.Log(themCongViecPanel.getName() + "  " + themCongViecPanel.getDes() + " " + themCongViecPanel.tieuChi.name);
 
         ImportUI(newCongViec.GetComponent<RectTransform>());
         LoadAllUI();
-    }    
+    }
     public void ThemCongViec(Button button)
     {
         var newCongViec = Instantiate(CongViecBody);
@@ -194,28 +202,28 @@ public class TabController : MonoBehaviour
         return newCongViec.transform;
     }
     public void loadDataFromDataBase()
-    {  
+    {
         foreach (var _data in data.listOfKPI)
         {
             //Debug.Log("KPI là: " + _data.name);
             _data.tab = ThemKPI(transform, _data);
 
-            foreach(var tc in _data.listTieuChi)
+            foreach (var tc in _data.listTieuChi)
             {
                 //Debug.Log("Tiêu Chí là: " + tc.name + "   "  + tc.getPercentDone());
                 tc.body = ThemTienChi(_data.tab, tc);
 
-                foreach(var cv in tc.listCongViec)
+                foreach (var cv in tc.listCongViec)
                 {
                     //Debug.Log("Công việc là: " + cv.name);
                     cv.body = ThemCongViec(tc.body, cv);
-                }    
-            }    
-        }    
+                }
+            }
+        }
     }
     void Start()
     {
-        ImportUI(GetComponent<RectTransform>());
+        ImportUI(transform.GetComponent<RectTransform>());
         LoadAllUI();
         data = FindObjectOfType<Database>();
     }
@@ -225,6 +233,15 @@ public class TabController : MonoBehaviour
         {
             _isloadData = true;
             loadDataFromDataBase();
-        }    
+        }
+    }
+    public void FilterSubmit()
+    {
+        for (int i = 1; i < transform.childCount; i++)
+        {
+            var mt = transform.GetChild(i).GetComponent<MucTieuControl>();
+            transform.GetChild(i).gameObject.SetActive(mt._data.name.ToLower().Contains(filter.text.ToLower()));
+        }
+        LoadAllUI();
     }
 }
