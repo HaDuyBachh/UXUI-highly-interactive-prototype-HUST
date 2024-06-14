@@ -1204,7 +1204,7 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
   borderWidth: 0
-  falloffDistance: 1
+  falloffDistance: 0
 --- !u!222 &548411912
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1352,7 +1352,7 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
   borderWidth: 0
-  falloffDistance: 1
+  falloffDistance: 0
 --- !u!222 &566811329
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2908,7 +2908,7 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
   borderWidth: 0
-  falloffDistance: 1
+  falloffDistance: 0
 --- !u!222 &1099917378
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3056,7 +3056,7 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
   borderWidth: 0
-  falloffDistance: 1
+  falloffDistance: 0
 --- !u!222 &1269414049
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3471,7 +3471,7 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
   borderWidth: 0
-  falloffDistance: 1
+  falloffDistance: 0
 --- !u!222 &1467013682
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3970,49 +3970,13 @@ MonoBehaviour:
         - name: Trang test
           selected: 1
           childs: []
+      - name: fire
+        selected: 1
+        childs: []
       - name: new mobile
         selected: 1
         childs:
-        - name: "C\u1EADp nh\u1EADt ti\u1EBFn \u0111\u1ED9"
-          selected: 1
-          childs: []
-        - name: "Trang \u0111\u0103ng nh\u1EADp"
-          selected: 1
-          childs: []
-        - name: "Trang ch\u1EE7"
-          selected: 1
-          childs: []
-        - name: Dash chung
-          selected: 1
-          childs: []
-        - name: "Dashboard ri\xEAng m\u1EE5c ti\xEAu"
-          selected: 1
-          childs: []
-        - name: "Chi ti\u1EBFt m\u1EE5c ti\xEAu"
-          selected: 1
-          childs: []
-        - name: "Th\xEAm m\u1EE5c ti\xEAu"
-          selected: 1
-          childs: []
-        - name: "Chi ti\u1EBFt ti\xEAu ch\xED"
-          selected: 1
-          childs: []
-        - name: "Th\xEAm ti\xEAu ch\xED"
-          selected: 1
-          childs: []
-        - name: "Chi ti\u1EBFt c\xF4ng vi\u1EC7c"
-          selected: 1
-          childs: []
-        - name: "Th\xEAm c\xF4ng vi\u1EC7c"
-          selected: 1
-          childs: []
-        - name: "L\u1ECBch"
-          selected: 1
-          childs: []
-        - name: Frame 115
-          selected: 1
-          childs: []
-        - name: "Trang ch\u1EE7"
+        - name: Trang LadiPage
           selected: 1
           childs: []
       - name: mobile
@@ -4030,7 +3994,7 @@ MonoBehaviour:
         - name: Android Large - 4
           selected: 1
           childs: []
-        - name: Android Large - 5
+        - name: SlideBar
           selected: 1
           childs: []
   requestSender:

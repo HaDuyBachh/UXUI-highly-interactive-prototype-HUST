@@ -36,7 +36,8 @@ public class MucTieuControl : MonoBehaviour
     
     public void Expand()
     {
-        for (int i = 1; i < transform.childCount; i++)
+        transform.GetChild(1).gameObject.SetActive(true);
+        for (int i = 3; i < transform.childCount; i++)
         {
             transform.GetChild(i).gameObject.SetActive(true);
         }
