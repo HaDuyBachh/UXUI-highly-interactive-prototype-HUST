@@ -239,8 +239,19 @@ public class TabController : MonoBehaviour
     {
         for (int i = 1; i < transform.childCount; i++)
         {
+            bool isGet = false;
             var mt = transform.GetChild(i).GetComponent<MucTieuControl>();
-            transform.GetChild(i).gameObject.SetActive(mt._data.name.ToLower().Contains(filter.text.ToLower()));
+
+            foreach (var tc in mt._data.listTieuChi)
+            {
+                foreach (var cv in tc.listCongViec)
+                {
+                    if (cv.name.ToLower().Contains(filter.text.ToLower()))
+                        isGet = true;
+                }    
+            }    
+
+            transform.GetChild(i).gameObject.SetActive(isGet);
         }
         LoadAllUI();
     }
