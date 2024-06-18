@@ -12,6 +12,7 @@ public class Database : MonoBehaviour
     const string filej = "/Database.json";
     const string path = "Assets/HaDuyBach_Script";
     public List<MucTieuData> listOfKPI = new List<MucTieuData>();
+    public List<MucTieuData> listApped = new();
     public ThongTinCaNhanData thongTinCaNhan; 
     public void saveData(List<MucTieuData> list)
     {
@@ -106,6 +107,18 @@ public class Database : MonoBehaviour
                     new CongViecData("Hội thảo OOP","",2,"buổi","29/5/2024","15/6/2024",null),
                 }),
             }),
+        };
+
+
+        listApped = new List<MucTieuData>
+        {
+             new MucTieuData("Rèn luyện thân thể","",40,null,1,new List<TieuChiData>
+             {
+                new TieuChiData("Chạy bộ","",60,10,"giờ",null, new List<CongViecData>{
+                }),
+                new TieuChiData("Đánh cầu lông","",40,10,"giờ",null, new List<CongViecData>{
+                }),
+             }),
         };
 
 
