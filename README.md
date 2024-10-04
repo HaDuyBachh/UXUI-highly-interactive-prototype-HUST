@@ -1,2 +1,2 @@
 # UXUI-highly-interactive-prototype-HUST
-Mẫu thử độ tương tác cao môn UXUI học kỳ 2023-2
+High-fidelity prototype for UX/UI course, semester 2023-2024
